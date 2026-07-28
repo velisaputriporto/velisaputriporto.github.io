@@ -1,8 +1,28 @@
 {
   "photos": [
-    { "image": "images/velisa-02.jpg", "alt": "Velisa Putri — garden editorial" },
-    { "image": "images/velisa-04.jpg", "alt": "Velisa Putri — smiling portrait" },
-    { "image": "images/velisa-01.jpg", "alt": "Velisa Putri — street style" },
-    { "image": "images/velisa-03.jpg", "alt": "Velisa Putri — lifestyle" }
+    {
+      "image": "images/velisa-02.jpg",
+      "alt": "Velisa Putri — garden editorial"
+    },
+    {
+      "image": "images/velisa-04.jpg",
+      "alt": "Velisa Putri — smiling portrait"
+    },
+    {
+      "image": "images/velisa-01.jpg",
+      "alt": "Velisa Putri — street style"
+    },
+    {
+      "image": "images/velisa-03.jpg",
+      "alt": "Velisa Putri — lifestyle"
+    },
+    {
+      "image": "/images/uploads/DSCF6380.jpg",
+      "alt": "Velisa Putri - cutesy"
+    },
+    {
+      "image": "/images/uploads/DSCF6393.jpg",
+      "alt": "Velisa Putri"
+    }
   ]
 }
