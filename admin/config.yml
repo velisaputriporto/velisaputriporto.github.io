@@ -4,11 +4,9 @@ backend:
   branch: main
   base_url: https://sveltia-cms-auth.underarmy60.workers.dev
 
-# Where uploaded photos are stored in the repo, and the URL used on the live site
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
-# Friendlier labels in the admin UI
 site_url: /
 display_url: /
 logo_url: /images/velisa-04.jpg
