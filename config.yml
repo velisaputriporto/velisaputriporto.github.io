@@ -1,0 +1,50 @@
+backend:
+  name: github
+  repo: satriozulkarnaen/Velisa
+  branch: main
+  base_url: https://api.netlify.com
+
+# Where uploaded photos are stored in the repo, and the URL used on the live site
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+# Friendlier labels in the admin UI
+site_url: /
+display_url: /
+logo_url: /images/velisa-04.jpg
+
+collections:
+  - name: "gallery"
+    label: "📸 Portfolio Photos"
+    description: "Add or remove the photos shown in the gallery. Drag to reorder."
+    files:
+      - name: "photos"
+        label: "Gallery Photos"
+        file: "data/gallery.json"
+        format: "json"
+        fields:
+          - label: "Photos"
+            name: "photos"
+            label_singular: "Photo"
+            widget: "list"
+            summary: "{{fields.alt}}"
+            fields:
+              - { label: "Photo", name: "image", widget: "image" }
+              - { label: "Caption (for accessibility)", name: "alt", widget: "string", required: false, default: "Velisa Putri" }
+
+  - name: "settings"
+    label: "⚙️ Bio & Contact"
+    files:
+      - name: "info"
+        label: "Bio & Contact Info"
+        file: "data/site.json"
+        format: "json"
+        fields:
+          - { label: "Name", name: "name", widget: "string" }
+          - { label: "Hero Tagline", name: "tagline", widget: "string" }
+          - { label: "Hero Photo (big photo at top)", name: "heroImage", widget: "image" }
+          - { label: "About Photo", name: "aboutImage", widget: "image" }
+          - { label: "Bio (leave a blank line between paragraphs)", name: "bio", widget: "text" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Instagram handle (without @)", name: "instagram", widget: "string" }
+          - { label: "TikTok handle (without @)", name: "tiktok", widget: "string" }
