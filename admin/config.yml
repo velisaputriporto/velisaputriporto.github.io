@@ -1,8 +1,8 @@
-backend:
-  name: github
-  repo: satriozulkarnaen/Velisa
-  branch: main
-  base_url: https://sveltia-cms-auth.underarmy60.workers.dev
+   backend:
+     name: github
+     repo: velisaputriporto/velisaputriporto.github.io
+     branch: main
+     base_url: https://sveltia-cms-auth.underarmy60.workers.dev
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
