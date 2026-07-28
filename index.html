@@ -292,19 +292,29 @@
   function esc(s){return String(s||'').replace(/[&<>"]/g,function(c){
     return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 
+  // Make image paths work whether the site is served from the domain root
+  // (custom domain / Netlify) or from a subfolder (GitHub Pages /Velisa/).
+  // Strips a leading "/" so paths resolve relative to the page. Leaves full
+  // URLs (http...) untouched.
+  function fixPath(p){
+    p=String(p||'');
+    if(/^https?:\/\//i.test(p)) return p;
+    return p.charAt(0)==='/' ? p.slice(1) : p;
+  }
+
   function renderGallery(photos){
     if(!photos || !photos.length) return;
     var g=document.getElementById('gallery');
     g.innerHTML=photos.map(function(p){
-      return '<figure><img src="'+esc(p.image)+'" alt="'+esc(p.alt||'Velisa Putri')+'"></figure>';
+      return '<figure><img src="'+esc(fixPath(p.image))+'" alt="'+esc(p.alt||'Velisa Putri')+'"></figure>';
     }).join('');
     bindLightbox();
   }
 
   function renderSite(s){
     if(!s) return;
-    if(s.heroImage) document.getElementById('heroImg').src=s.heroImage;
-    if(s.aboutImage) document.getElementById('aboutImg').src=s.aboutImage;
+    if(s.heroImage) document.getElementById('heroImg').src=fixPath(s.heroImage);
+    if(s.aboutImage) document.getElementById('aboutImg').src=fixPath(s.aboutImage);
     if(s.tagline){
       // keep the last word italic/coral to match the design
       var words=s.tagline.trim().split(' ');
