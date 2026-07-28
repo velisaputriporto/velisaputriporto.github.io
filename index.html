@@ -105,8 +105,15 @@
   }
   .gallery figure:hover::after{opacity:1}
 
+  /* VIDEOS */
+  #videos{background:linear-gradient(180deg,#fff5ef,#ffe9df)}
+  .video-grid{display:flex;flex-wrap:wrap;gap:24px;justify-content:center}
+  .video-card{background:#fff;border-radius:18px;padding:10px;box-shadow:0 14px 34px rgba(43,35,32,.12);max-width:340px;width:100%}
+  .video-card blockquote{margin:0 auto}
+  .video-empty{text-align:center;color:var(--soft);font-size:.95rem}
+
   /* ABOUT */
-  #about{background:linear-gradient(180deg,#fff5ef,#ffe9df)}
+  #about{background:var(--cream)}
   .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center}
   .about-photo img{width:100%;border-radius:22px;box-shadow:0 24px 50px rgba(43,35,32,.18)}
   .about-text h2{font-size:clamp(2rem,4vw,2.9rem);margin-bottom:20px}
@@ -166,6 +173,7 @@
     <div class="logo">Velisa <span>Putri</span></div>
     <div class="navlinks" id="navlinks">
       <a onclick="closeMenu()" href="#portfolio">Portfolio</a>
+      <a onclick="closeMenu()" href="#videos" id="navVideos" style="display:none">Videos</a>
       <a onclick="closeMenu()" href="#about">About</a>
       <a onclick="closeMenu()" href="#contact">Contact</a>
     </div>
@@ -205,6 +213,16 @@
       <figure><img src="images/velisa-01.jpg" alt="Velisa Putri — street style"></figure>
       <figure><img src="images/velisa-03.jpg" alt="Velisa Putri — lifestyle"></figure>
     </div>
+  </div>
+</section>
+
+<section class="sec" id="videos" style="display:none">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">On Camera</div>
+      <h2>Videos</h2>
+    </div>
+    <div class="video-grid" id="videoGrid"></div>
   </div>
 </section>
 
@@ -309,10 +327,62 @@
     }
   }
 
+  // ---- Videos: paste a TikTok or Instagram post URL in the CMS, this
+  //      detects the platform and builds the official embed automatically ----
+  function loadScriptOnce(src){
+    if(document.querySelector('script[src="'+src+'"]')) return;
+    var s=document.createElement('script');
+    s.src=src; s.async=true;
+    document.body.appendChild(s);
+    return s;
+  }
+
+  function renderVideos(list){
+    if(!list || !list.length) return; // section stays hidden
+    var grid=document.getElementById('videoGrid');
+    var html='';
+    var hasTikTok=false, hasInstagram=false;
+
+    list.forEach(function(v){
+      var url=(v.url||'').trim();
+      if(!url) return;
+      if(url.indexOf('tiktok.com')>-1){
+        hasTikTok=true;
+        var idMatch=url.match(/\/video\/(\d+)/);
+        var videoId=idMatch?idMatch[1]:'';
+        html+='<div class="video-card">'+
+          '<blockquote class="tiktok-embed" cite="'+esc(url)+'" data-video-id="'+esc(videoId)+'" style="max-width:325px;min-width:280px;margin:0 auto;">'+
+          '<section></section></blockquote></div>';
+      } else if(url.indexOf('instagram.com')>-1){
+        hasInstagram=true;
+        html+='<div class="video-card">'+
+          '<blockquote class="instagram-media" data-instgrm-permalink="'+esc(url)+'" data-instgrm-version="14" style="margin:0 auto;"></blockquote></div>';
+      }
+    });
+
+    if(!html) return; // no recognized links, keep section hidden
+
+    grid.innerHTML=html;
+    document.getElementById('videos').style.display='';
+    document.getElementById('navVideos').style.display='';
+
+    if(hasTikTok) loadScriptOnce('https://www.tiktok.com/embed.js');
+    if(hasInstagram){
+      var igScript=loadScriptOnce('https://www.instagram.com/embed.js');
+      if(igScript){
+        igScript.onload=function(){ if(window.instgrm) window.instgrm.Embeds.process(); };
+      } else if(window.instgrm){
+        window.instgrm.Embeds.process();
+      }
+    }
+  }
+
   fetch('data/gallery.json').then(function(r){return r.json();})
     .then(function(d){renderGallery(d.photos);}).catch(function(){/* keep defaults */});
   fetch('data/site.json').then(function(r){return r.json();})
     .then(renderSite).catch(function(){/* keep defaults */});
+  fetch('data/videos.json').then(function(r){return r.json();})
+    .then(function(d){renderVideos(d.videos);}).catch(function(){/* section stays hidden */});
 
   bindLightbox(); // bind the default photos immediately
 </script>

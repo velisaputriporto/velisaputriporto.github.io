@@ -32,6 +32,24 @@ collections:
               - { label: "Photo", name: "image", widget: "image" }
               - { label: "Caption (for accessibility)", name: "alt", widget: "string", required: false, default: "Velisa Putri" }
 
+  - name: "videos"
+    label: "🎥 Videos"
+    description: "Paste a link to a TikTok or Instagram video (a single post's URL, not a profile link). Remove one to take it down."
+    files:
+      - name: "clips"
+        label: "Video Links"
+        file: "data/videos.json"
+        format: "json"
+        fields:
+          - label: "Videos"
+            name: "videos"
+            label_singular: "Video"
+            widget: "list"
+            summary: "{{fields.url}}"
+            fields:
+              - { label: "TikTok or Instagram video URL", name: "url", widget: "string" }
+              - { label: "Caption (optional, not shown publicly yet)", name: "caption", widget: "string", required: false }
+
   - name: "settings"
     label: "⚙️ Bio & Contact"
     files:
