@@ -2,7 +2,7 @@ backend:
   name: github
   repo: satriozulkarnaen/Velisa
   branch: main
-  base_url: https://api.netlify.com
+  base_url: https://sveltia-cms-auth.underarmy60.workers.dev
 
 # Where uploaded photos are stored in the repo, and the URL used on the live site
 media_folder: "images/uploads"
