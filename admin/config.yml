@@ -61,6 +61,15 @@ collections:
           - { label: "Hero Photo (big photo at top)", name: "heroImage", widget: "image" }
           - { label: "About Photo", name: "aboutImage", widget: "image" }
           - { label: "Bio (leave a blank line between paragraphs)", name: "bio", widget: "text" }
+          - label: "Highlight Cards (the little boxes under the bio)"
+            name: "highlights"
+            widget: "list"
+            label_singular: "Card"
+            summary: "{{fields.title}} — {{fields.subtitle}}"
+            required: false
+            fields:
+              - { label: "Title (bold top)", name: "title", widget: "string" }
+              - { label: "Subtitle (small text)", name: "subtitle", widget: "string", required: false }
           - { label: "Email", name: "email", widget: "string" }
           - { label: "Instagram handle (without @)", name: "instagram", widget: "string" }
           - { label: "TikTok handle (without @)", name: "tiktok", widget: "string" }
