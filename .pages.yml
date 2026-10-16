@@ -1,0 +1,94 @@
+# Pages CMS config (https://pagescms.org/docs/configuration/)
+# Mirrors the fields in admin/config.yml. Field order matches the key order in
+# data/*.json, because Pages CMS writes keys in the order fields are listed.
+
+# Media root is the whole images/ folder so older photos stay pickable.
+# Image fields open in images/uploads, so new uploads land there.
+media:
+  input: images
+  output: /images
+
+content:
+  - name: gallery
+    label: "📸 Portfolio Photos"
+    type: file
+    path: data/gallery.json
+    format: json
+    fields:
+      - name: photos
+        label: Photos
+        description: Add or remove the photos shown in the gallery. Drag to reorder.
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{alt}"
+        fields:
+          - name: image
+            label: Photo
+            type: image
+            required: true
+            options:
+              path: images/uploads
+          - name: alt
+            label: Caption (for accessibility)
+            type: string
+            default: Velisa Putri
+
+  - name: videos
+    label: "🎥 Videos"
+    type: file
+    path: data/videos.json
+    format: json
+    fields:
+      - name: videos
+        label: Videos
+        description: Paste a link to a TikTok or Instagram video (a single post's URL, not a profile link). Remove one to take it down.
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{url}"
+        fields:
+          - name: url
+            label: TikTok or Instagram video URL
+            type: string
+            required: true
+          - name: caption
+            label: Caption (optional, not shown publicly yet)
+            type: string
+
+  - name: settings
+    label: "⚙️ Bio & Contact"
+    type: file
+    path: data/site.json
+    format: json
+    fields:
+      - { name: name, label: Name, type: string, required: true }
+      - { name: tagline, label: Hero Tagline, type: string, required: true }
+      - name: heroImage
+        label: Hero Photo (big photo at top)
+        type: image
+        required: true
+        options:
+          path: images/uploads
+      - name: aboutImage
+        label: About Photo
+        type: image
+        required: true
+        options:
+          path: images/uploads
+      - { name: bio, label: "Bio (leave a blank line between paragraphs)", type: text, required: true }
+      - name: highlights
+        label: Highlight Cards (the little boxes under the bio)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title} — {subtitle}"
+        fields:
+          - { name: title, label: Title (bold top), type: string, required: true }
+          - { name: subtitle, label: Subtitle (small text), type: string }
+      - { name: email, label: Email, type: string, required: true }
+      - { name: instagram, label: Instagram handle (without @), type: string, required: true }
+      - { name: tiktok, label: TikTok handle (without @), type: string, required: true }
