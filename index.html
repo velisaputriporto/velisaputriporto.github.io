@@ -293,7 +293,7 @@
     return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 
   // Make image paths work whether the site is served from the domain root
-  // (custom domain / Netlify) or from a subfolder (GitHub Pages /Velisa/).
+  // (custom domain) or from a subfolder (GitHub Pages /Velisa/).
   // Strips a leading "/" so paths resolve relative to the page. Leaves full
   // URLs (http...) untouched.
   function fixPath(p){

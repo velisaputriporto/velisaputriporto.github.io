@@ -1,5 +1,5 @@
 # Pages CMS config (https://pagescms.org/docs/configuration/)
-# Mirrors the fields in admin/config.yml. Field order matches the key order in
+# Mirrors the editable fields in data/*.json. Field order matches the key order in
 # data/*.json, because Pages CMS writes keys in the order fields are listed.
 
 # Media root is the whole images/ folder so older photos stay pickable.
