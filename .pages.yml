@@ -92,3 +92,9 @@ content:
       - { name: email, label: Email, type: string, required: true }
       - { name: instagram, label: Instagram handle (without @), type: string, required: true }
       - { name: tiktok, label: TikTok handle (without @), type: string, required: true }
+
+# Commits made by invited editors show their name and email instead of the
+# Pages CMS app's identity.
+settings:
+  commit:
+    identity: user
