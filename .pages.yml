@@ -16,8 +16,7 @@ content:
     format: json
     fields:
       - name: photos
-        label: Photos
-        description: Add or remove the photos shown in the gallery. Drag to reorder.
+        label: "Photos (drag ⋮⋮ to reorder)"
         type: object
         list:
           collapsible:
@@ -43,7 +42,6 @@ content:
     fields:
       - name: videos
         label: Videos
-        description: Paste a link to a TikTok or Instagram video (a single post's URL, not a profile link). Remove one to take it down.
         type: object
         list:
           collapsible:
@@ -52,6 +50,7 @@ content:
         fields:
           - name: url
             label: TikTok or Instagram video URL
+            description: The link to one post, not a profile link.
             type: string
             required: true
           - name: caption
