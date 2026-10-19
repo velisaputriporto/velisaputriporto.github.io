@@ -4,9 +4,11 @@
 
 # Media root is the whole images/ folder so older photos stay pickable.
 # Image fields open in images/uploads, so new uploads land there.
+# rename: safe turns "My Photo 1.JPG" into "my-photo-1.jpg" on upload.
 media:
   input: images
   output: /images
+  rename: safe
 
 content:
   - name: gallery

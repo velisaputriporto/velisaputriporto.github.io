@@ -16,12 +16,19 @@ Then open the **velisaputriporto.github.io** project. On the left you'll see thr
 
 ## 2. Photos (📸 Portfolio Photos)
 
-- **Add a photo:** click **+ Add an item** at the bottom of the list, then click the photo box and upload a picture (or pick one that's already there). Fill in the caption. It's used by screen readers, so describe the photo briefly.
-- **Remove a photo:** click the **Remove item** button on that photo's row (hover over the buttons to see their names), then confirm with **Remove**.
+- **Add a photo:** click **+ Add an item** at the bottom of the list, then click **Upload** to add a new picture (or **Select** to pick one that's already there). Fill in the caption. It's used by screen readers, so describe the photo briefly.
+- **Remove a photo:** click the bin icon 🗑 on the right of that photo's row, then confirm with **Remove**.
 - **Change the order:** drag a photo up or down by the dotted handle on its left. The order here is the order on the website.
 - Click **Save** when you're done.
 
-**Photo size:** keep each photo under about **3 MB**, roughly **1600 pixels** on the longest side. Phone photos are usually much bigger, so shrink them first (any "resize" or "export for web" option works). Big photos make the site slow.
+**Photo size:** each photo must be **under 3 MB**. Bigger photos won't upload, and you'll see **Failed to upload file: 413**. That just means "too big". Shrink the photo and try again. Around **1600 pixels** on the longest side is plenty, and it keeps the site fast.
+
+Two easy ways to shrink a photo:
+
+- **On your phone:** use the "resize", "export" or "reduce size" option in your gallery or photo-editing app.
+- **On a computer:** go to **squoosh.app** (free, no account), drop the photo in, set the width to 1600, and download it.
+
+The file name gets tidied up automatically when you upload, so "My Photo 1.JPG" becomes "my-photo-1.jpg". That's normal.
 
 ## 3. Videos (🎥 Videos)
 
@@ -29,7 +36,7 @@ Then open the **velisaputriporto.github.io** project. On the left you'll see thr
   - ✅ Right: `https://www.instagram.com/reel/ABC123/` or `https://www.tiktok.com/@name/video/123456`
   - ❌ Wrong: a profile link like `https://www.instagram.com/vellshaptrii/`
 - The caption is optional. It isn't shown on the website yet.
-- **Remove a video:** click its **Remove item** button, then confirm with **Remove**.
+- **Remove a video:** click the bin icon 🗑 on the right of its row, then confirm with **Remove**.
 - Click **Save**.
 
 ## 4. Bio and contact (⚙️ Bio & Contact)
@@ -42,8 +49,8 @@ Here you can change the name, the tagline at the top, the big top photo, the Abo
 
 ## 5. When will I see my changes?
 
-The website updates by itself **within a couple of minutes** after you click Save.
-If you still see the old version, do a hard refresh:
+The website updates by itself after you click Save, usually **within a few minutes, and always within 10**.
+To see it straight away, do a hard refresh:
 
 - **Windows:** `Ctrl` + `Shift` + `R`
 - **Mac:** `Cmd` + `Shift` + `R`
