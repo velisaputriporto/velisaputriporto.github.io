@@ -32,7 +32,7 @@ content:
             options:
               path: images/uploads
           - name: alt
-            label: Caption (for accessibility)
+            label: Caption (visitors see this when a photo is enlarged)
             type: string
             default: Velisa Putri
 

@@ -16,7 +16,7 @@ Then open the **velisaputriporto.github.io** project. On the left you'll see thr
 
 ## 2. Photos (📸 Portfolio Photos)
 
-- **Add a photo:** click **+ Add an item** at the bottom of the list, then click **Upload** to add a new picture (or **Select** to pick one that's already there). Fill in the caption. It's used by screen readers, so describe the photo briefly.
+- **Add a photo:** click **+ Add an item** at the bottom of the list, then click **Upload** to add a new picture (or **Select** to pick one that's already there). Fill in the caption with a short description of the photo. Visitors see it under the photo when they enlarge it, and screen readers read it out.
 - **Remove a photo:** click the bin icon 🗑 on the right of that photo's row, then confirm with **Remove**.
 - **Change the order:** drag a photo up or down by the dotted handle on its left. The website reads this order left to right, row by row, so put your strongest photos at the top of the list.
 - Click **Save** when you're done.

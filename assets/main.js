@@ -203,24 +203,37 @@
       splitWords(h, s.tagline, { pencil: true, pencilDelay: 1700 });
       if (wasIn) h.classList.add('in');
     }
-    if (s.intro) $('#intro').textContent = s.intro;
+    // Once site.json has loaded it decides what shows. A field that's empty or
+    // missing gets hidden, not replaced with the built-in text from index.html
+    // (which is only there for when the data file can't be loaded at all).
+    var introText = String(s.intro || '').trim();
+    var intro = $('#intro');
+    intro.textContent = introText;
+    intro.hidden = !introText;
+
     if (s.aboutImage) $('#aboutImg').src = fixPath(s.aboutImage);
     if (s.bio) {
       $('#aboutBio').innerHTML = s.bio.split(/\n\s*\n/).map(function (par) {
         return '<p>' + esc(par.trim()) + '</p>';
       }).join('');
     }
-    if (s.stats && s.stats.length) {
-      $('#heroStats').innerHTML = statsHtml(s.stats);
-      $('#aboutStats').innerHTML = statsHtml(s.stats);
-    }
-    if (s.highlights && s.highlights.length) {
-      var list = $('#facts');
-      list.innerHTML = s.highlights.map(function (h, i) {
-        return '<li class="svc" data-reveal><a href="#contact"><span class="svc-no">' + pad(i + 1) + '</span><h3>' + esc(h.title) + '</h3><p>' + esc(h.subtitle || '') + '</p><span class="svc-go" aria-hidden="true">→</span></a></li>';
-      }).join('');
-      $$('.svc', list).forEach(reveal);
-    }
+    var stats = (s.stats || []).filter(function (x) { return x && x.label && x.value; });
+    ['#heroStats', '#aboutStats'].forEach(function (id) {
+      var el = $(id);
+      el.innerHTML = statsHtml(stats);
+      el.hidden = !stats.length;
+    });
+
+    // No services left: hide the whole section and its menu link.
+    var services = (s.highlights || []).filter(function (x) { return x && x.title; });
+    var list = $('#facts');
+    list.innerHTML = services.map(function (h, i) {
+      return '<li class="svc" data-reveal><a href="#contact"><span class="svc-no">' + pad(i + 1) + '</span><h3>' + esc(h.title) + '</h3><p>' + esc(h.subtitle || '') + '</p><span class="svc-go" aria-hidden="true">→</span></a></li>';
+    }).join('');
+    $$('.svc', list).forEach(reveal);
+    $('#services').hidden = !services.length;
+    $('#navlinks a[href="#services"]').hidden = !services.length;
+
     var comp = $('#compCard');
     if (s.compCard) comp.href = fixPath(s.compCard);
     else comp.hidden = true;

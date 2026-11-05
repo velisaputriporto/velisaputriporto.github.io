@@ -28,7 +28,7 @@ collections:
             summary: "{{fields.alt}}"
             fields:
               - { label: "Photo", name: "image", widget: "image" }
-              - { label: "Caption (for accessibility)", name: "alt", widget: "string", required: false, default: "Velisa Putri" }
+              - { label: "Caption (visitors see this when a photo is enlarged)", name: "alt", widget: "string", required: false, default: "Velisa Putri" }
 
   - name: "videos"
     label: "🎥 Videos"
