@@ -161,10 +161,11 @@ dd{font-family:var(--display);font-size:1.3rem;letter-spacing:-.01em}
 .pencil{position:absolute;inset:-14% -9% -20% -9%;width:118%;height:134%;overflow:visible;pointer-events:none}
 .pencil path{
   fill:none;stroke:var(--coral);stroke-width:2.6;stroke-linecap:round;
-  stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.2s cubic-bezier(.65,0,.35,1);
+  stroke-dasharray:1;stroke-dashoffset:1;opacity:0; /* a round cap leaves a dot until drawing starts */
+  transition:stroke-dashoffset 1.2s cubic-bezier(.65,0,.35,1),opacity 0s;
   transition-delay:calc(var(--pd,600ms));
 }
-.in .pencil path{stroke-dashoffset:0}
+.in .pencil path{stroke-dashoffset:0;opacity:1}
 
 /* Generic scroll reveal */
 .js [data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform 1s var(--ease);transition-delay:var(--delay,0ms)}
@@ -215,8 +216,8 @@ dd{font-family:var(--display);font-size:1.3rem;letter-spacing:-.01em}
 .shot.done .shot-mask img{transition:transform .9s var(--ease);transition-delay:0ms}
 .shot-btn:hover .shot-mask img,.shot-btn:focus-visible .shot-mask img{transform:scale(1.035)}
 .shot-mark{position:absolute;inset:-7px;width:calc(100% + 14px);height:calc(100% + 14px);pointer-events:none;overflow:visible}
-.shot-mark path{fill:none;stroke:var(--coral);stroke-width:.9;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .75s cubic-bezier(.65,0,.35,1)}
-.shot-btn:hover .shot-mark path,.shot-btn:focus-visible .shot-mark path{stroke-dashoffset:0}
+.shot-mark path{fill:none;stroke:var(--coral);stroke-width:.9;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;opacity:0;transition:stroke-dashoffset .75s cubic-bezier(.65,0,.35,1),opacity 0s .75s}
+.shot-btn:hover .shot-mark path,.shot-btn:focus-visible .shot-mark path{stroke-dashoffset:0;opacity:1;transition:stroke-dashoffset .75s cubic-bezier(.65,0,.35,1),opacity 0s}
 .shot-label{display:flex;justify-content:space-between;color:var(--soft-on-ink);padding-top:8px;transition:color .2s}
 .shot:hover .shot-label{color:var(--coral)}
 .shot-label .pick{opacity:0;transition:opacity .25s}
@@ -345,7 +346,8 @@ dd{font-family:var(--display);font-size:1.3rem;letter-spacing:-.01em}
   h2{font-size:clamp(2.9rem,14.5vw,4.4rem)}
   .contact h2{font-size:clamp(3.3rem,16.5vw,5.4rem)}
   .cta .btn{flex:1 1 0}
-  .stats div{padding-right:18px;margin-right:18px}
+  .stats{display:grid;grid-template-columns:1fr 1fr;width:100%}
+  .stats div{padding:12px 12px 0 0;margin-right:0;border-right:0}
   .contact-actions .btn{flex:1 1 calc(50% - 6px)}
   .contact-actions #emailBtn{flex-basis:100%}
   .lb[open]{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:minmax(0,1fr) 66px}

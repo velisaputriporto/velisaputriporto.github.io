@@ -12,6 +12,7 @@
   "aboutImage": "/images/uploads/DSCF6400.jpg",
   "bio": "Curly hair, sun-kissed skin, and a lot of energy once the camera's on. I'm natural and expressive in front of a lens, and I'm fun to direct.\n\nI'm early in my career and looking for more work with brands and agencies. If you have a project in mind, send it over, even if it's not on my list.",
   "stats": [
+    { "label": "Based in", "value": "South Jakarta" },
     { "label": "Height", "value": "160 cm" },
     { "label": "Clothing", "value": "M" },
     { "label": "Shoes", "value": "39–40" }
