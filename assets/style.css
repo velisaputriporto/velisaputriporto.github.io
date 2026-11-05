@@ -241,7 +241,14 @@ dd{font-family:var(--display);font-size:1.3rem;letter-spacing:-.01em}
 .vcard{flex:0 0 min(84vw,340px);scroll-snap-align:start}
 .vlabel{display:flex;gap:10px;margin-bottom:10px;color:var(--soft)}
 .vlabel b{font-weight:500;color:var(--ink)}
-.vbox{background:#fff;border-radius:6px;overflow:hidden;min-height:540px;box-shadow:0 1px 0 var(--line)}
+.vbox{position:relative;background:#fff;border-radius:6px;overflow:hidden;min-height:583px;box-shadow:0 1px 0 var(--line)}
+.vfallback{
+  position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:space-between;
+  padding:24px;background:var(--ink);color:var(--paper);transition:background-color .25s;
+}
+.vfallback:hover{background:var(--ink-2)}
+.vf-brand{font-family:var(--display);font-style:italic;font-weight:300;font-size:clamp(2.6rem,4vw,3.4rem);line-height:1;letter-spacing:-.02em;overflow-wrap:anywhere}
+.vf-go{font-weight:600;color:var(--coral)}
 .vbox blockquote{margin:0!important;min-width:0!important;max-width:100%!important;width:100%!important;border:0!important;border-radius:0!important;box-shadow:none!important}
 .vbox iframe{min-width:0!important;max-width:100%!important;border-radius:0!important;border:0!important;margin:0!important}
 

@@ -446,11 +446,30 @@
     document.body.appendChild(s);
   }
 
+  // Instagram refuses to embed some posts, and blockers can stop embeds entirely.
+  // Either way the frame never grows, so swap the blank box for a link to the post.
+  // Keeps checking for a while, so a slow embed still replaces the link when it arrives.
+  function watchEmbeds(grid) {
+    var start = Date.now();
+    var timer = setInterval(function () {
+      var elapsed = Date.now() - start;
+      var waiting = 0;
+      $$('.vbox', grid).forEach(function (box) {
+        var frame = $('iframe', box);
+        var loaded = !!frame && frame.offsetHeight > 50;
+        $('.vfallback', box).hidden = loaded || elapsed < 10000;
+        if (!loaded) waiting++;
+      });
+      if (!waiting || elapsed > 60000) clearInterval(timer);
+    }, 1000);
+  }
+
   function renderVideos(list) {
     var html = '';
     var tiktok = false, insta = false, count = 0;
     (list || []).forEach(function (v) {
-      var url = String(v.url || '').trim().split('?')[0]; // drop share-tracking params
+      var url = String(v.url || '').trim().split('?')[0] // drop share-tracking params
+        .replace(/(instagram\.com\/)reels\//i, '$1reel/'); // /reels/ links embed as a blank card
       if (!url) return;
       var embed = '';
       if (url.indexOf('tiktok.com') > -1) {
@@ -465,7 +484,11 @@
       count++;
       html += '<article class="vcard" data-reveal style="--delay:' + (Math.min(count, 4) * 80) + 'ms">' +
         '<p class="vlabel"><span>' + pad(count) + '</span><b>' + esc(v.caption || 'Reel') + '</b></p>' +
-        '<div class="vbox">' + embed + '</div></article>';
+        '<div class="vbox">' + embed +
+          '<a class="vfallback" href="' + esc(url) + '" target="_blank" rel="noopener" hidden>' +
+            '<span class="vf-brand">' + esc(v.caption || 'Reel') + '</span>' +
+            '<span class="vf-go">Watch on ' + (url.indexOf('tiktok.com') > -1 ? 'TikTok' : 'Instagram') + ' →</span>' +
+          '</a></div></article>';
     });
     if (!html) return;
 
@@ -486,6 +509,7 @@
           if (window.instgrm) window.instgrm.Embeds.process();
         });
       }
+      watchEmbeds(grid);
     };
     if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function (entries) {
