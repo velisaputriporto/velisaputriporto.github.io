@@ -46,7 +46,7 @@ collections:
             summary: "{{fields.url}}"
             fields:
               - { label: "TikTok or Instagram video URL", name: "url", widget: "string" }
-              - { label: "Caption (optional, not shown publicly yet)", name: "caption", widget: "string", required: false }
+              - { label: "Brand name (shown above the video)", name: "caption", widget: "string", required: false }
 
   - name: "settings"
     label: "⚙️ Bio & Contact"
@@ -57,19 +57,45 @@ collections:
         format: "json"
         fields:
           - { label: "Name", name: "name", widget: "string" }
-          - { label: "Hero Tagline", name: "tagline", widget: "string" }
-          - { label: "Hero Photo (big photo at top)", name: "heroImage", widget: "image" }
+          - { label: "Hero Tagline (the last word gets the red pencil circle)", name: "tagline", widget: "string" }
+          - { label: "Intro (short sentence under the tagline)", name: "intro", widget: "text", required: false }
+          - { label: "Hero Photo (the photo the top animation lands on)", name: "heroImage", widget: "image" }
+          - label: "Hero Reel (photos it cycles through, 3 to 5 is best)"
+            name: "heroReel"
+            widget: "list"
+            label_singular: "Photo"
+            required: false
+            fields:
+              - { label: "Photo", name: "image", widget: "image" }
           - { label: "About Photo", name: "aboutImage", widget: "image" }
           - { label: "Bio (leave a blank line between paragraphs)", name: "bio", widget: "text" }
-          - label: "Highlight Cards (the little boxes under the bio)"
+          - label: "Stats (height, sizes, and so on, shown at the top and in About)"
+            name: "stats"
+            widget: "list"
+            label_singular: "Stat"
+            summary: "{{fields.label}}: {{fields.value}}"
+            required: false
+            fields:
+              - { label: "Label, like Height or Based in", name: "label", widget: "string" }
+              - { label: "Value, like 160 cm or Jakarta", name: "value", widget: "string" }
+          - label: "What I do (the big list of services)"
             name: "highlights"
             widget: "list"
-            label_singular: "Card"
+            label_singular: "Service"
             summary: "{{fields.title}} — {{fields.subtitle}}"
             required: false
             fields:
-              - { label: "Title (bold top)", name: "title", widget: "string" }
-              - { label: "Subtitle (small text)", name: "subtitle", widget: "string", required: false }
+              - { label: "Service name", name: "title", widget: "string" }
+              - { label: "One-line description", name: "subtitle", widget: "string", required: false }
+          - label: "Brands (the moving coral band)"
+            name: "brands"
+            widget: "list"
+            label_singular: "Brand"
+            summary: "{{fields.name}}"
+            required: false
+            fields:
+              - { label: "Brand name", name: "name", widget: "string" }
+          - { label: "Comp card (the Download button, leave empty to hide it)", name: "compCard", widget: "image", required: false }
           - { label: "Email", name: "email", widget: "string" }
           - { label: "Instagram handle (without @)", name: "instagram", widget: "string" }
           - { label: "TikTok handle (without @)", name: "tiktok", widget: "string" }

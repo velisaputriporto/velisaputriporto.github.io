@@ -18,7 +18,7 @@ Then open the **velisaputriporto.github.io** project. On the left you'll see thr
 
 - **Add a photo:** click **+ Add an item** at the bottom of the list, then click **Upload** to add a new picture (or **Select** to pick one that's already there). Fill in the caption. It's used by screen readers, so describe the photo briefly.
 - **Remove a photo:** click the bin icon 🗑 on the right of that photo's row, then confirm with **Remove**.
-- **Change the order:** drag a photo up or down by the dotted handle on its left. The order here is the order on the website.
+- **Change the order:** drag a photo up or down by the dotted handle on its left. The website reads this order left to right, row by row, so put your strongest photos at the top of the list.
 - Click **Save** when you're done.
 
 **Photo size:** each photo must be **under 3 MB**. Bigger photos won't upload, and you'll see **Failed to upload file: 413**. That just means "too big". Shrink the photo and try again. Around **1600 pixels** on the longest side is plenty, and it keeps the site fast.
@@ -35,13 +35,23 @@ The file name gets tidied up automatically when you upload, so "My Photo 1.JPG" 
 - **Add a video:** click **+ Add an item** and paste the link to **one** TikTok or Instagram post.
   - ✅ Right: `https://www.instagram.com/reel/ABC123/` or `https://www.tiktok.com/@name/video/123456`
   - ❌ Wrong: a profile link like `https://www.instagram.com/vellshaptrii/`
-- The caption is optional. It isn't shown on the website yet.
+- Type the **brand name** in the box below the link. It appears above the video, so clients can see who the work was for. If you leave it empty, the video is just labelled "Reel".
 - **Remove a video:** click the bin icon 🗑 on the right of its row, then confirm with **Remove**.
 - Click **Save**.
 
 ## 4. Bio and contact (⚙️ Bio & Contact)
 
-Here you can change the name, the tagline at the top, the big top photo, the About photo, the bio, the little highlight boxes under the bio, and the email, Instagram and TikTok details.
+Here you can change everything else on the site:
+
+- **Hero Tagline and Intro:** the big words at the top and the sentence under them. The last word of the tagline gets the red pencil circle, so end on a short word.
+- **Hero Photo and Hero Reel:** the animation at the top flicks through the Hero Reel photos and lands on the Hero Photo, then keeps cycling through them. Pick 3 to 5 portrait photos where the face is near the top. Don't use a photo that has text on it, like the comp card.
+- **Stats:** the height and sizes shown at the top and in About. Add more if you like, for example **Based in**.
+- **What I do:** the big list of services.
+- **Brands:** the names in the moving coral band. Only add brands you've really worked with and are allowed to name.
+- **Comp card:** the file behind the Download button. Anyone can download it, so check you're happy with the details on it, especially a phone number.
+- **About Photo, Bio, Email, Instagram, TikTok:** the rest of the details.
+
+A few tips:
 
 - In the **Bio**, leave an empty line between paragraphs.
 - Type Instagram and TikTok names **without** the `@`.

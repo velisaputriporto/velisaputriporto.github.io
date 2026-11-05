@@ -1,23 +1,46 @@
 {
   "name": "Velisa Putri",
   "tagline": "Naturally playful & bold on camera",
-  "heroImage": "/images/uploads/Abu-abu dan Hitam Minimalis Model Kasual Instagram Post.png",
+  "intro": "I model, make UGC and do brand deals. If your project needs someone in front of the camera, tell me about it.",
+  "heroImage": "/images/uploads/Velisa_Photoshoot_14 (1) (1).jpg",
+  "heroReel": [
+    { "image": "/images/velisa-04.jpg" },
+    { "image": "/images/uploads/photo_6228631233193775372_y-1.jpg" },
+    { "image": "/images/velisa-02.jpg" },
+    { "image": "/images/uploads/DSCF6380.jpg" }
+  ],
   "aboutImage": "/images/uploads/DSCF6400.jpg",
-  "bio": "Sun-kissed skin, a head full of natural curls, and a bold presence in front of the camera. An emerging talent with a playful, confident energy, ready to bring personality and versatility to modeling, UGC, and brand campaigns.\n\nOpen to collaborations with agencies and brands looking for a fresh, striking face to represent them.",
+  "bio": "Curly hair, sun-kissed skin, and a lot of energy once the camera's on. I'm natural and expressive in front of a lens, and I'm fun to direct.\n\nI'm early in my career and looking for more work with brands and agencies. If you have a project in mind, send it over, even if it's not on my list.",
+  "stats": [
+    { "label": "Height", "value": "160 cm" },
+    { "label": "Clothing", "value": "M" },
+    { "label": "Shoes", "value": "39–40" }
+  ],
   "highlights": [
     {
+      "title": "Modeling",
+      "subtitle": "Editorial, lifestyle, lookbooks and product shoots."
+    },
+    {
       "title": "UGC",
-      "subtitle": "Content Creation"
+      "subtitle": "Videos of me talking to camera or using your product, for your page or your ads."
     },
     {
-      "title": "Brand",
-      "subtitle": "Endorsements"
+      "title": "Brand deals",
+      "subtitle": "Endorsements and campaigns on my Instagram and TikTok."
     },
     {
-      "title": "Model",
-      "subtitle": "Natural, Expressive, Fun to Direct"
+      "title": "Something else",
+      "subtitle": "If it needs a person on camera or in the room, ask me."
     }
   ],
+  "brands": [
+    { "name": "Whitelab" },
+    { "name": "Bonavie" },
+    { "name": "Goute" },
+    { "name": "Ssaint Society" }
+  ],
+  "compCard": "/images/uploads/Velisa_Compcard New.png",
   "email": "velisaputriajjah@gmail.com",
   "instagram": "vellshaptrii",
   "tiktok": "trullyycasperr"

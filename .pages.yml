@@ -56,7 +56,7 @@ content:
             type: string
             required: true
           - name: caption
-            label: Caption (optional, not shown publicly yet)
+            label: Brand name (shown above the video)
             type: string
 
   - name: settings
@@ -66,13 +66,28 @@ content:
     format: json
     fields:
       - { name: name, label: Name, type: string, required: true }
-      - { name: tagline, label: Hero Tagline, type: string, required: true }
+      - { name: tagline, label: "Hero Tagline (the last word gets the red pencil circle)", type: string, required: true }
+      - { name: intro, label: Intro (short sentence under the tagline), type: text }
       - name: heroImage
-        label: Hero Photo (big photo at top)
+        label: Hero Photo (the photo the top animation lands on)
         type: image
         required: true
         options:
           path: images/uploads
+      - name: heroReel
+        label: Hero Reel (photos it cycles through, 3 to 5 is best)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{image}"
+        fields:
+          - name: image
+            label: Photo
+            type: image
+            required: true
+            options:
+              path: images/uploads
       - name: aboutImage
         label: About Photo
         type: image
@@ -80,16 +95,40 @@ content:
         options:
           path: images/uploads
       - { name: bio, label: "Bio (leave a blank line between paragraphs)", type: text, required: true }
+      - name: stats
+        label: "Stats (height, sizes, and so on, shown at the top and in About)"
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{label}: {value}"
+        fields:
+          - { name: label, label: "Label, like Height or Based in", type: string, required: true }
+          - { name: value, label: "Value, like 160 cm or Jakarta", type: string, required: true }
       - name: highlights
-        label: Highlight Cards (the little boxes under the bio)
+        label: What I do (the big list of services)
         type: object
         list:
           collapsible:
             collapsed: true
             summary: "{title} — {subtitle}"
         fields:
-          - { name: title, label: Title (bold top), type: string, required: true }
-          - { name: subtitle, label: Subtitle (small text), type: string }
+          - { name: title, label: Service name, type: string, required: true }
+          - { name: subtitle, label: One-line description, type: string }
+      - name: brands
+        label: Brands (the moving coral band)
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - { name: name, label: Brand name, type: string, required: true }
+      - name: compCard
+        label: "Comp card (the Download button, leave empty to hide it)"
+        type: image
+        options:
+          path: images/uploads
       - { name: email, label: Email, type: string, required: true }
       - { name: instagram, label: Instagram handle (without @), type: string, required: true }
       - { name: tiktok, label: TikTok handle (without @), type: string, required: true }
